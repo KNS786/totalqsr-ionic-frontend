@@ -1,0 +1,7 @@
+{
+  "name": "videostreamapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
