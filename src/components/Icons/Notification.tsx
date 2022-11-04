@@ -1,4 +1,4 @@
-import Badge from '@mui/icons-material/BadgeOutlined';
+import BadgeOutlined from '@mui/icons-material/BadgeOutlined';
 import NotificationsIcon from '@mui/icons-material/NotificationsOutlined';
 import './Notification.css';
 
@@ -13,4 +13,4 @@ const NotificationIcon = () => {
     )
 }
 
-export default NotificationIcon
+export default NotificationIcon;

@@ -14,6 +14,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 import PunchInOut from './pages/PunchInOut';
 import TimeOff from './pages/TimeOff';
 import TimeCard from './pages/TimeCard';
+import Schedule from './pages/Schedule';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,6 +39,7 @@ import './theme/variables.css';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import EventIcon from '@mui/icons-material/Event';
+import DateRangeIcon from '@mui/icons-material/DateRange';
 
 setupIonicReact();
 
@@ -58,11 +60,14 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/punchInOut" />
           </Route>
+          <Route exact path = "/schedule">
+            <Schedule/>
+          </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="punchInOut" href="/punchInOut">
             <AccessTimeIcon/>
-            <IonLabel>PunchInOut</IonLabel>
+            <IonLabel>Clock</IonLabel>
           </IonTabButton>
           <IonTabButton tab="timeOff" href="/timeoff">
             <EventIcon/>
@@ -71,6 +76,10 @@ const App: React.FC = () => (
           <IonTabButton tab="timeCard" href="/timecard">
           <PendingActionsIcon/>
             <IonLabel>Time Card</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="Schedule" href="/schedule">
+            <DateRangeIcon/>
+            <IonLabel>Schedule</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
