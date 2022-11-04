@@ -1,8 +1,14 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './PunchInOut.css';
 
-//Icons 
+//Icons
 import Menu from '../components/Icons/Menu';
 import ProfileIcon from '../components/Icons/Profile';
 import NotificationIcon from '../components/Icons/Notification';
@@ -10,20 +16,19 @@ import NotificationIcon from '../components/Icons/Notification';
 const PunchInOut: React.FC = () => {
   return (
     <IonPage>
-            <IonHeader>
+      <IonHeader>
         <IonToolbar>
-          <Menu/>
-          <ProfileIcon/>
-          <NotificationIcon/>
+          <div className="flex">
+            <Menu />
+            <ProfileIcon />
+            <div className="flex flex-1 justify-end items-center">
+              <NotificationIcon />
+            </div>
+          </div>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Hi,Navani!!</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Hi Navani!!" />
+        <ExploreContainer name="Hi Jessica!!" />
       </IonContent>
     </IonPage>
   );
