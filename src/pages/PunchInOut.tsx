@@ -13,6 +13,9 @@ import Menu from '../components/Icons/Menu';
 import ProfileIcon from '../components/Icons/Profile';
 import NotificationIcon from '../components/Icons/Notification';
 
+//screens
+import ClockOut from '../screens/clockOut';
+
 const PunchInOut: React.FC = () => {
   return (
     <IonPage>
@@ -29,6 +32,7 @@ const PunchInOut: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <ExploreContainer name="Hi Jessica!!" />
+        <ClockOut/>
       </IonContent>
     </IonPage>
   );

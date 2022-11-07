@@ -62,7 +62,7 @@ const App: React.FC = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="punchInOut" href="/punchInOut">
             <AccessTimeIcon/>
-            <IonLabel>PunchInOut</IonLabel>
+            <IonLabel>Clock</IonLabel>
           </IonTabButton>
           <IonTabButton tab="timeOff" href="/timeoff">
             <EventIcon/>

@@ -6,6 +6,7 @@ import {
   IonToolbar,
   IonCheckbox,
   IonItem,
+  IonInput,
   IonLabel,
   IonSelect, 
   IonSelectOption,
@@ -27,8 +28,6 @@ const TimeOff: React.FC = () => {
   const data = [
       { label: 'Store#1 : Electoric Shoping and Repairing', year: 1994 },
       { label: 'Store#2 : Car Repairing and Services', year: 1972 },
-      { label: 'Store#3 : Home furnitures and appliances', year: 1974 },
-      { label: 'Store#4 : Computer hardware services', year: 2008 }
   ];
 
   return (
@@ -76,7 +75,6 @@ const TimeOff: React.FC = () => {
             <IonSelect interface="popover" placeholder="Shop Address">
               <IonSelectOption value='Store#1 : Electoric Shoping and Repairing'>Store#1 : Electoric Shoping and Repairing</IonSelectOption>
               <IonSelectOption value='Store#2 : Car Repairing and Services'>Store#2 : Car Repairing and Services</IonSelectOption>
-              <IonSelectOption value='Store#3 : Home furnitures and appliances'>Store#3 : Home furnitures and appliances</IonSelectOption>
             </IonSelect>
           </IonItem>
         </IonList>    
