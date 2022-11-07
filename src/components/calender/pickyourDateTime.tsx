@@ -2,15 +2,19 @@
 import React from 'react';
 
 import { IonDatetime , IonList ,IonItem } from '@ionic/react';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 const pickYourDateTime:React.FC = () => {
   return (
-    <IonDatetime
-    presentation="month-year"
-      value="2022-04-21T00:00:00"
-      min="2022-03-01T00:00:00"
-      max="2022-05-31T23:59:59"
-    ></IonDatetime>
-
+    <div className="mb-8 flex items-stretch">
+      <div className="grid grid-cols-2 gap-2">
+        <IonDatetime presentation="date" preferWheel={true}></IonDatetime>
+      </div>
+      <div className="flex items-stretch">
+        <IonDatetime presentation="time" preferWheel={true}></IonDatetime>
+      </div>
+    </div>
   );
 }
 export default pickYourDateTime;

@@ -31,7 +31,6 @@ const PunchInOut: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <ExploreContainer name="Hi Jessica!!" />
         <ClockOut/>
       </IonContent>
     </IonPage>

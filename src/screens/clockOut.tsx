@@ -4,36 +4,43 @@ import {
   IonSegmentButton
 } from '@ionic/react';
 
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 
 import PickyourDateTime from "../components/calender/pickyourDateTime";
 
 const ClockOut:React.FC = () => {
-  const [pickYourTime,setPickYourTime] = useState(true);
-  const [nowCurrentTime,setNowCurrentTime] = useState(false);
+  
+  const [clicked,setClicked] = useState("");
+  
+  const displayUserDatePicker = () =>{
+    if(clicked === "Pick your Time"){
+      return (
+        <PickyourDateTime/>
+      )
+    }
+    else if(clicked === "Now"){
+      return (
+        <p> new Date </p>
+      )
+    }
+    else{
+      return <></>
+    }
 
-  const dateTimePickHandler = (event:any) =>{
-    setPickYourTime(true);
-    setNowCurrentTime(false);
-  }
-
-  const currentTimeHandler = (event:any) => {
-    setNowCurrentTime(true);
-    setPickYourTime(false);
   }
 
   return (
         <>
-        <IonSegment value="Pick your Time">
-        <IonSegmentButton value="Pick your Time" onClick = {dateTimePickHandler}>
+        <IonSegment value="Pick your Time" onClick = {(e:any)=>setClicked(e.target.value)}>
+        <IonSegmentButton value="Pick your Time">
           <IonLabel>Pick your Time</IonLabel>
         </IonSegmentButton>
-        <IonSegmentButton value="Now" onClick = {(event:any)=>currentTimeHandler(event)}>
+        <IonSegmentButton value="Now" >
           <IonLabel>Now</IonLabel>
         </IonSegmentButton>
        </IonSegment>
        {
-        pickYourTime ? <PickyourDateTime/> :nowCurrentTime ? <p>new Date</p> : <></>
+        displayUserDatePicker()
        }
       </>
   )
