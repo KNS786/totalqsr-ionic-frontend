@@ -6,12 +6,11 @@ import {
   IonToolbar,
   IonCheckbox,
   IonItem,
-  IonInput,
   IonLabel,
-  IonSelect, 
+  IonSelect,
   IonSelectOption,
   IonList,
-  IonRadio
+  IonRadio,
 } from '@ionic/react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -24,10 +23,11 @@ import Radio from '@mui/material/Radio';
 import './TimeOff.css';
 
 const TimeOff: React.FC = () => {
-
   const data = [
-      { label: 'Store#1 : Electoric Shoping and Repairing', year: 1994 },
-      { label: 'Store#2 : Car Repairing and Services', year: 1972 },
+    { label: 'Store#1 : Electoric Shoping and Repairing', year: 1994 },
+    { label: 'Store#2 : Car Repairing and Services', year: 1972 },
+    { label: 'Store#3 : Home furnitures and appliances', year: 1974 },
+    { label: 'Store#4 : Computer hardware services', year: 2008 },
   ];
 
   return (
@@ -50,6 +50,7 @@ const TimeOff: React.FC = () => {
             label="Disabled MUI Checkbox"
           />
         </FormGroup>
+
         <IonList class="ion-align-items-center">
           <IonItem>
             <IonCheckbox slot="start"></IonCheckbox>
@@ -60,36 +61,46 @@ const TimeOff: React.FC = () => {
             <IonLabel>Observe how I change based on device</IonLabel>
           </IonItem>
         </IonList>
-        <IonLabel>For MUI DropDown
+        <IonLabel className="m-2">MUI Dropdown</IonLabel>
         <Autocomplete
           disablePortal
+          className="m-2"
           id="combo-box-demo"
           options={data}
-          sx={{ width: 400}}
-          renderInput={(params) => <TextField {...params} label="Shop Address" />}
-         />
-         </IonLabel>
-            <IonLabel>Ionic DropDown</IonLabel>
-        <IonList>
-         <IonItem>
+          // sx={{ width: 400 }}
+          renderInput={(params) => (
+            <TextField {...params} label="Shop Address" />
+          )}
+        />
+
+        <IonLabel className="m-2">Ionic Dropdown</IonLabel>
+        <IonList className="m-2">
+          <IonItem>
             <IonSelect interface="popover" placeholder="Shop Address">
-              <IonSelectOption value='Store#1 : Electoric Shoping and Repairing'>Store#1 : Electoric Shoping and Repairing</IonSelectOption>
-              <IonSelectOption value='Store#2 : Car Repairing and Services'>Store#2 : Car Repairing and Services</IonSelectOption>
+              <IonSelectOption value="Store#1 : Electoric Shoping and Repairing">
+                Store#1 : Electoric Shoping and Repairing
+              </IonSelectOption>
+              <IonSelectOption value="Store#2 : Car Repairing and Services">
+                Store#2 : Car Repairing and Services
+              </IonSelectOption>
+              <IonSelectOption value="Store#3 : Home furnitures and appliances">
+                Store#3 : Home furnitures and appliances
+              </IonSelectOption>
             </IonSelect>
           </IonItem>
-        </IonList>    
+        </IonList>
         <IonList>
           <IonItem>
-          <IonLabel>MUI Radio Button</IonLabel>
-          <Radio
-            value="radioA"
-            inputProps={{
+            <IonLabel>MUI Radio Button</IonLabel>
+            <Radio
+              value="radioA"
+              inputProps={{
                 'aria-label': 'Radio A',
-            }}
-          />
+              }}
+            />
           </IonItem>
           <IonItem>
-          <IonLabel>Ionic Radio Button</IonLabel>
+            <IonLabel>Ionic Radio Button</IonLabel>
             <IonRadio slot="end" value="radio button"></IonRadio>
           </IonItem>
         </IonList>
