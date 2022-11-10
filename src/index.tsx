@@ -3,13 +3,19 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { Auth0Provider } from '@auth0/auth0-react';
+import { domain as auth0Domain, clientId, callbackUri , audience } from "./auth.config";
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain={auth0Domain}
+    clientId={clientId}
+    redirectUri={callbackUri}
+  >
     <App />
-  </React.StrictMode>
+  </Auth0Provider>
 );
 
 // If you want your app to work offline and load faster, you can change

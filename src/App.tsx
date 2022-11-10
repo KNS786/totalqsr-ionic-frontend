@@ -11,9 +11,16 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
+
+import { Browser } from '@capacitor/browser';
+import { useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+
+
 import PunchInOut from './pages/PunchInOut';
 import TimeOff from './pages/TimeOff';
 import TimeCard from './pages/TimeCard';
+import LoginPage from './pages/LoginPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -38,14 +45,32 @@ import './theme/variables.css';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import EventIcon from '@mui/icons-material/Event';
+import { App as CapApp } from '@capacitor/app';
 
-setupIonicReact();
+setupIonicReact({
+  mode: "md"
+});
 
-const App: React.FC = () => (
-  <IonApp>
+const App: React.FC = () => {
+  const { handleRedirectCallback } = useAuth0();
+  useEffect(() => {
+    // Handle the 'appUrlOpen' event and call `handleRedirectCallback`
+    CapApp.addListener('appUrlOpen', async ({ url }) => {
+      if (url.includes('state') && (url.includes('code') || url.includes('error'))) {
+        await handleRedirectCallback(url);
+      }
+      // No-op on Android
+      await Browser.close();
+    });
+  }, [handleRedirectCallback]);
+  return(
+    <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
           <Route exact path="/punchInOut">
             <PunchInOut />
           </Route>
@@ -56,7 +81,7 @@ const App: React.FC = () => (
             <TimeCard />
           </Route>
           <Route exact path="/">
-            <Redirect to="/punchInOut" />
+            <Redirect to="/login"/>
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
@@ -76,6 +101,7 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+  )
+}
 
 export default App;
