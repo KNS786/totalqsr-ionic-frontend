@@ -23,6 +23,7 @@ const LoginButton: React.FC = () => {
   
       console.log("body :: ", body)
       const config = {
+        headers:{'Content-Type': 'application/json'},
         method:'post',
         url:"https://dev-nodi7dk0hk7rpxjp.us.auth0.com/oauth/token",
         data:body
@@ -40,7 +41,7 @@ const LoginButton: React.FC = () => {
       }
 
     }catch(err){
-      setErrorMessge("Invalid User!");
+      setErrorMessge(`Invalid User!  error : ${err}` );
     }
     
   }
